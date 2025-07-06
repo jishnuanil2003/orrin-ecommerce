@@ -4,7 +4,7 @@ import video from '../../assets/videoplayback.mp4'
 const HeroSection = () => {
     return (
         <div className="relative">
-            <div className="absolute top-70 left-6 md:inset-1 flex flex-col items-center justify-center text-white z-0 px-4">
+            <div className="absolute inset-1 flex flex-col items-center justify-center text-white z-0 px-4">
                 <h1 className="text-4xl md:text-6xl font-bold mb-2  ">Welcome to ORRIN</h1>
                 <p className="text-md md:text-xl mb-6">Explore our exclusive watch collection</p>
                 <div className="flex space-x-4">

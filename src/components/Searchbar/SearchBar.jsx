@@ -30,18 +30,19 @@ export const searchData = [
     },
 ]
 const SearchBar = ({search,setSearch}) => {
-    // cont[search,setSearch] = useState(false)
+    const[show,setShow] = useState(false)
     const [value, setValue] = useState('')
     const filter_data = searchData.filter(item =>
         item.name.toLowerCase().includes(value.toLowerCase())
     );
     return (
         <div className="">
-            <div onClick={()=>setSearch(!search)} className="bg-[#2a2a2a] flex items-center px-3 py-1 rounded-full text-sm hover:pr-5 transition-all duration-150 ease-in ">
+            <div onClick={()=>setSearch(!search)} className="bg-[#2a2a2a] flex items-center px-3 py-1 rounded-full text-sm hover:pr-5 transition-all duration-150 ease-in border-1 border-gray-600">
                 <ion-icon name="search" className="mr-2 left-5 text-white text-lg"></ion-icon>
                 <input
                     type="text"
-                    placeholder="Search"
+                    placeholder="search"
+                    value={value}
                     className="bg-transparent outline-none text-white placeholder-gray-400 w-0 md:w-32"
                     onChange={(e) => setValue(e.target.value)}
                 />
@@ -50,7 +51,7 @@ const SearchBar = ({search,setSearch}) => {
         <div className="absolute md:top-14 bg-white rounded shadow-md w-64 z-10">
           {filter_data.length > 0 ? (
             filter_data.map((obj, index) => (
-              <div key={index} className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              <div key={index} className={`${show?'disabled':'visible'} flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer`} onClick={()=>{setValue(obj.name);setShow(!show)}}>
                 <img src={obj.image} alt={obj.name} className="w-6 h-6 rounded-full mr-3" />
                 <p className="text-gray-700">{obj.name}</p>
               </div>

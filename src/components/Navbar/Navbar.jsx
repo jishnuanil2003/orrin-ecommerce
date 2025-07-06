@@ -4,9 +4,7 @@ import logo from '../../assets/ORRIN WATCHES white.png'; // Make sure this path 
 import SearchBar from "../Searchbar/SearchBar";
 import { searchData } from "../Searchbar/SearchBar";
 
-
-const Navbar = () => {
-    const [state, setState] = useState(0);
+const Navbar = ({count}) => {
     const [value, setValue] = useState('')
     const [active, setActive] = useState(false)
     const [search, setSearch] = useState(false);
@@ -23,7 +21,6 @@ const Navbar = () => {
                         src={logo}
                         alt="ORRIN Watches"
                         className="h-2 w-auto"
-                        onClick={() => setState(state + 1)}
                     />
                 </Link>
 
@@ -39,7 +36,7 @@ const Navbar = () => {
                     <hr className="border-t border-gray-600" />
                     <Link to="/premium" className="hover:text-gray-400">Premium</Link>
                     <hr className="border-t border-gray-600" />
-                    <Link to="/custom" className="hover:text-gray-400">Custom</Link>
+                    <Link to="/login" className="hover:text-gray-400">Profile</Link>
                 </div>
 
                 {/* Right Icons */}
@@ -50,7 +47,7 @@ const Navbar = () => {
                     {/* Cart */}
                     <Link to="/cart" className="flex items-center gap-1">
                         <ion-icon name="bag-handle-outline" className="text-2xl"></ion-icon>
-                        <span>{state}</span>
+                        <span className="text-white">{count}</span>
                     </Link>
 
                     {/* hamburger menu */}
