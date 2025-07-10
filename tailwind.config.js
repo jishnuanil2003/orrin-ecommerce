@@ -7,9 +7,9 @@ export default withMT({
   ],
   theme: {
     extend: {
-      fontFamily:{
-        lato:['lato']
-      }
+      fontFamily: {
+        lato: ['lato'],
+      },
     },
   },
   plugins: [],

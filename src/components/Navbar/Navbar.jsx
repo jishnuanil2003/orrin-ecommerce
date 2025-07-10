@@ -1,16 +1,34 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect,useContext} from "react";
 import logo from '../../assets/ORRIN WATCHES white.png'; // Make sure this path is correct
 import SearchBar from "../Searchbar/SearchBar";
 import { searchData } from "../Searchbar/SearchBar";
+import { db,auth } from "../firebase/config";
+import { doc,getDoc } from "firebase/firestore";
+import { CartContext } from "../CartContext";
 
 const Navbar = ({count}) => {
+    const[user,setUser] = useState(null)
     const [value, setValue] = useState('')
     const [active, setActive] = useState(false)
-    const [search, setSearch] = useState(false);
+    const { cartItems } = useContext(CartContext);
     const filter_data = searchData.filter(item =>
         item.name.toLowerCase().includes(value.toLowerCase())
     );
+    const [search, setSearch] = useState(false);
+    const fetchUserData = async()=>{
+        auth.onAuthStateChanged(async(user)=>{
+            console.log(user)
+            const docRef = doc(db,'users',user.uid)
+            const docSnap = await(getDoc(docRef))
+            if(docSnap.exists()){
+                setUser(docSnap.data())
+            }
+        })
+    }
+    useEffect(() => {
+    fetchUserData();
+    }, [])
     return (
         <div className="overflow-x-hidden">
         <nav className="bg-[#000000] text-white pl-3 pr-5 py-4">
@@ -36,7 +54,9 @@ const Navbar = ({count}) => {
                     <hr className="border-t border-gray-600" />
                     <Link to="/premium" className="hover:text-gray-400">Premium</Link>
                     <hr className="border-t border-gray-600" />
-                    <Link to="/login" className="hover:text-gray-400">Profile</Link>
+
+                    {/* create a dropdown option for logout and view profile */}
+                    <Link to="/login" className="hover:text-gray-400">{user? user.firstname:'Profile'}</Link>
                 </div>
 
                 {/* Right Icons */}
@@ -47,7 +67,7 @@ const Navbar = ({count}) => {
                     {/* Cart */}
                     <Link to="/cart" className="flex items-center gap-1">
                         <ion-icon name="bag-handle-outline" className="text-2xl"></ion-icon>
-                        <span className="text-white">{count}</span>
+                        <span className="text-white">{cartItems.length}</span>
                     </Link>
 
                     {/* hamburger menu */}

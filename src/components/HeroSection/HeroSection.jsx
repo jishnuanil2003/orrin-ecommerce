@@ -5,7 +5,7 @@ const HeroSection = () => {
     return (
         <div className="relative">
             <div className="absolute inset-1 flex flex-col items-center justify-center text-white z-0 px-4">
-                <h1 className="text-4xl md:text-6xl font-bold mb-2  ">Welcome to ORRIN</h1>
+                <h1 className="text-4xl md:text-6xl font-bold mb-2">Welcome to ORRIN</h1>
                 <p className="text-md md:text-xl mb-6">Explore our exclusive watch collection</p>
                 <div className="flex space-x-4">
                     <button className="bg-gray-100 text-base md:text-lg text-black px-4 py-2 md:px-6 md:py-2 border-0 rounded-md font-semibold hover:bg-gray-100">Shop Now</button>
