@@ -12,6 +12,8 @@ Welcome to **ORRIN**, a modern and stylish e-commerce platform built using **Rea
 - 🌙 Dark-themed aesthetic
 - 🧭 Dynamic navbar
 - ✨ Smooth fade-in animation on page load
+- 🛒 Dynamically changing cart according to user logic
+- 🦹🏻‍♀️ User authentication 
 
 ---
 
@@ -21,6 +23,7 @@ Welcome to **ORRIN**, a modern and stylish e-commerce platform built using **Rea
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Material Tailwind](https://www.material-tailwind.com/)
 - [Vite](https://vitejs.dev/) (for lightning-fast development)
+- Firebase(https://firebase.google.com/)(for backend database)
 
 ---
 
