@@ -31,3 +31,8 @@ Welcome to **ORRIN**, a modern and stylish e-commerce platform built using **Rea
 ```bash
 git clone https://github.com/yourusername/orrin-ecommerce.git
 cd orrin-ecommerce
+```
+### 2. Login credentials
+
+username: user@gmail.com
+password: user123
